@@ -1,4 +1,4 @@
-(ns euler)
+(ns euler.problem-001)
 
 (defn divides?
   "Test if dividend can be evenly divided by divisor."
@@ -16,12 +16,12 @@
   (boolean (some #(divides? dividend %) divisors)))
 
 ;; Filter version in left-to-right form
-(defn problem-001
+(defn -main
   "Calculate the sum of multiples of 3 or 5 below upper"
-  [upper]
-  (->> (range upper)
-       (filter #(divides-any? % 3 5))
-       (apply +)))
+  ([] (-main 1000))
+  ([upper]   (->> (range upper)
+                  (filter #(divides-any? % 3 5))
+                  (apply +))))
 
 ;; Recursive version
 ;; (defn problem-001
